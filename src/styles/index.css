@@ -1,0 +1,24 @@
+@import './fonts.css';
+@import './theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-ink font-body antialiased;
+}
+
+::selection {
+  background: #0E7C86;
+  color: #fff;
+}
+
+/* RTL fine-tuning */
+[dir='rtl'] .animate-marquee {
+  direction: ltr;
+}
