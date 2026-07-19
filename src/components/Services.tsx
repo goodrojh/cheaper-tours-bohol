@@ -1,14 +1,14 @@
 import { useI18n } from '../i18n'
-import { waLink } from '../lib/site'
+import { asset, waLink } from '../lib/site'
 import SectionHeading from './SectionHeading'
 
 export default function Services() {
   const { t } = useI18n()
 
   const items = [
-    { title: t.services.s1t, desc: t.services.s1d, glyph: '✦' },
-    { title: t.services.s2t, desc: t.services.s2d, glyph: '❖' },
-    { title: t.services.s3t, desc: t.services.s3d, glyph: '≋' },
+    { title: t.services.s1t, desc: t.services.s1d, image: 'images/firefly-watching.png' },
+    { title: t.services.s2t, desc: t.services.s2d, image: 'images/mirror-of-the-world.png' },
+    { title: t.services.s3t, desc: t.services.s3d, image: 'images/napaling-sardines.png' },
   ]
 
   return (
@@ -18,14 +18,27 @@ export default function Services() {
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {items.map((s, i) => (
-            <div
+            <a
               key={s.title}
-              className={`reveal reveal-delay-${i + 1} rounded-3xl border border-white/10 bg-white/5 p-8 transition-colors hover:bg-white/10`}
+              href={waLink(t.wa.tour + s.title)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`reveal reveal-delay-${i + 1} group overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1.5 hover:border-white/25`}
             >
-              <div className="animate-drift font-display text-4xl text-ocean">{s.glyph}</div>
-              <h3 className="mt-4 font-display text-2xl">{s.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/70">{s.desc}</p>
-            </div>
+              <div className="relative overflow-hidden">
+                <img
+                  src={asset(s.image)}
+                  alt={s.title}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-[3000ms] ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+              </div>
+              <div className="p-7">
+                <h3 className="font-display text-2xl">{s.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/70">{s.desc}</p>
+              </div>
+            </a>
           ))}
         </div>
 

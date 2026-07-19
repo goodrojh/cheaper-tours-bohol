@@ -8,7 +8,7 @@ Cinematic one-page website for a family-run tour operator on Bohol island, Phili
 
 - React 18 + TypeScript + Vite
 - Tailwind CSS 3
-- Custom i18n (9 languages: EN, 中文, 日本語, FR, DE, IT, ES, हिन्दी, العربية with RTL)
+- Custom i18n (11 languages: EN, Русский, 한국어, 中文, 日本語, FR, DE, IT, ES, हिन्दी, العربية with RTL)
 - AI-generated hero video (Higgsfield / Kling 3.0 Turbo)
 - Real tour photos from the operator
 

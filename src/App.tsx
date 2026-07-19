@@ -25,7 +25,9 @@ function RevealObserver() {
           }
         }
       },
-      { threshold: 0.12 },
+      // Fire slightly before elements enter the viewport so content never
+      // looks missing on tall desktop screens or fast scrolls.
+      { threshold: 0, rootMargin: '0px 0px 120px 0px' },
     )
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
     return () => observer.disconnect()

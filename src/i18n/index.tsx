@@ -10,9 +10,13 @@ import { it } from './translations/it'
 import { es } from './translations/es'
 import { hi } from './translations/hi'
 import { ar } from './translations/ar'
+import { ru } from './translations/ru'
+import { ko } from './translations/ko'
 
 export const LANGS = {
   en: 'English',
+  ru: 'Русский',
+  ko: '한국어',
   zh: '中文',
   ja: '日本語',
   fr: 'Français',
@@ -25,7 +29,7 @@ export const LANGS = {
 
 export type Lang = keyof typeof LANGS
 
-const dicts: Record<Lang, Dict> = { en, zh, ja, fr, de, it, es, hi, ar }
+const dicts: Record<Lang, Dict> = { en, ru, ko, zh, ja, fr, de, it, es, hi, ar }
 
 interface I18nCtx {
   lang: Lang
